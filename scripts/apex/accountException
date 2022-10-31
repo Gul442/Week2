@@ -1,0 +1,12 @@
+try{
+    
+    account ac=new account();
+    insert ac;
+}catch(DmlException px){
+    system.debug('dml went wrong');
+}
+catch(exception ex){
+    system.debug('Something went wrong buddy');
+}
+
+system.debug('Apex is simple');
