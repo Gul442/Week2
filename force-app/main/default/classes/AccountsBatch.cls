@@ -1,6 +1,9 @@
+//updating description of all accounts
+//also getting statistics using stateful
 public class AccountsBatch implements database.batchable<sobject>, database.stateful {
     integer numberOfRecords = 0;
     integer count = 0;
+    //start method soql
     public database.querylocator start(Database.batchableContext bc){
         //write query
         //sobject ia account
