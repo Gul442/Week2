@@ -1,4 +1,9 @@
 trigger AccountTrigger on Account (before insert, before update, after insert, after update) {
+    //check if switch is on or off for account obj
+    triggerSwitch__c accountSwitch = triggerSwitch__c.getInstance('account');
+    if(accountSwitch.switch__c==false){
+        return;
+    }
     system.debug('====trigger start======');
     if (trigger.isBefore) {
         AccountTriggerHandler.updateDescription(Trigger.New, Trigger.Old, Trigger.NewMap, Trigger.OldMap);

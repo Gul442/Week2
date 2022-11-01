@@ -1,4 +1,10 @@
 trigger CaseTrigger on Case (before insert,before update) {
+    triggerSwitch__c contactSwitch = triggerSwitch__c.getInstance('contact');
+    if(contactSwitch.switch__c==false){
+        return;
+    }
+    
+    
     if (trigger.isinsert) {
          System.debug('before insert case');
     }
